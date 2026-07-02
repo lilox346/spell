@@ -1,1 +1,1 @@
-Spell scanner
+Spell scanner v1
