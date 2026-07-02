@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spell Scanner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="header">
+      <h1>Spell Scanner</h1>
+      <p>Prototype de lecture de sorts dessinés sur papier.</p>
+    </section>
+
+    <section class="card">
+      <h2>1. Photo du sort</h2>
+      <p class="info">Dessine ton sort au stylo noir sur papier blanc, puis prends une photo.</p>
+
+      <input id="imageInput" type="file" accept="image/*" capture="environment" />
+
+      <div class="controls">
+        <label for="thresholdRange">
+          Seuil noir/blanc :
+          <span id="thresholdValue">150</span>
+        </label>
+        <input id="thresholdRange" type="range" min="50" max="230" value="150" />
+      </div>
+
+      <button id="analyzeBtn">Analyser le sort</button>
+      <button id="resetBtn" class="secondary">Réinitialiser</button>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Image originale</h2>
+        <canvas id="originalCanvas"></canvas>
+      </div>
+
+      <div class="card">
+        <h2>Image nettoyée</h2>
+        <canvas id="processedCanvas"></canvas>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Résultat</h2>
+
+      <div class="result-block">
+        <h3>Symboles détectés</h3>
+        <ul id="symbolsList">
+          <li>Aucun symbole détecté.</li>
+        </ul>
+      </div>
+
+      <div class="result-block">
+        <h3>Sort reconnu</h3>
+        <p id="spellResult">Aucun sort analysé.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Symboles reconnus pour la V1</h2>
+      <ul class="rules">
+        <li>Grand cercle : activation</li>
+        <li>Triangle : feu</li>
+        <li>Carré : protection</li>
+        <li>Vague : eau</li>
+        <li>Trait vertical vers le haut : projection</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
